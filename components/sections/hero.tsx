@@ -1,13 +1,20 @@
 "use client"
 
 import { ChevronDown } from "lucide-react"
+import { Georama as Georgia } from "next/font/google"
+
+const georgia = Georgia({
+  weight: ["400"],
+  subsets: ["latin"],
+  style: ["italic"],
+})
 
 export default function Hero() {
   return (
     <main className="px-6 md:px-8 pt-16 md:pt-24 text-white">
       <div className="max-w-4xl">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
-          I create <span className="italic text-[#B923FF] font-light">beautiful</span>
+          I create <span className={`italic text-[#B923FF] font-light ${georgia.className}`}>beautiful</span>
           <br />
           website
         </h1>
