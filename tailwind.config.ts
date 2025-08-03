@@ -28,10 +28,11 @@ const config: Config = {
         "russia-purple": "#1E0044",
         "blue-violet": "#8338EC",
         "purple-custom": "#B923FF",
+        "purple": "#A22DF7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "#0B001A",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",

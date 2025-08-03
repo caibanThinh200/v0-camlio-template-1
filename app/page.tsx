@@ -5,7 +5,7 @@ import ScrollDownButton from "@/components/ui/scroll-down-button"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1E0044] via-[#2D1B69] to-[#8338EC]">
+    <div>
       <Header />
       <Hero />
       <Services />

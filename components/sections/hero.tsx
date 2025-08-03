@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <main className="px-6 md:px-8 pt-16 md:pt-24 text-white">
+    <main className="px-6 md:px-8 py-16 md:py-24 text-white bg-russia-purple">
       <div className="max-w-4xl">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
           I create <span className="italic text-[#B923FF] font-light font-georgia">beautiful</span>
@@ -15,6 +15,7 @@ export default function Hero() {
           <br />
           tailor-made Webflow experiences
         </p>
+        <p>Available for freelance work</p>
       </div>
     </main>
   )

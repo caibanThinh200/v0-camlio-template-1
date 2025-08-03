@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -38,8 +38,13 @@ export default function Header() {
         </Link>
       </nav>
 
-      <Button variant="outline" className="border-white/20 bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm">
-        LET'S TALK <ExternalLink className="w-4 h-4 ml-2" />
+      <Button
+        className="bg-[#1E0044] text-white border-[0.5] border-transparent bg-gradient-to-r from-[#8338EC] to-[#B923FF] p-[2px] rounded-[10px] hover:opacity-90 transition-opacity shadow-md shadow-purple"
+       
+      >
+        <span className="bg-[#1E0044] px-4 py-2 rounded-[10px] flex items-center gap-2">
+          LET'S TALK <ArrowUpRight className="w-4 h-4" />
+        </span>
       </Button>
     </header>
   )
