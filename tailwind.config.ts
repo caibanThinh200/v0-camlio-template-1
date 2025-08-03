@@ -22,6 +22,7 @@ const config: Config = {
       fontFamily: {
         montserrat: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
         sans: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
+        georgia: ["Georgia", "Times New Roman", "Times", "serif"],
       },
       colors: {
         "russia-purple": "#1E0044",
