@@ -10,7 +10,7 @@ export default function Header() {
     <header className="flex items-center justify-between p-6 md:p-8 text-white">
       <div className="text-xl font-medium italic">
         <Link href="/" className="hover:opacity-80 transition-opacity">
-          <Image src="/images/logo.png" alt="Hello Camlio" width={120} height={40} className="h-8 w-auto" />
+          <Image src="/images/logo.png" alt="Hello Camlio" width={150} height={40} />
         </Link>
       </div>
 
