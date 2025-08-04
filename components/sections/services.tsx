@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge"
 
 export default function Services() {
   return (
-    <section className="px-6 md:px-8 py-16 md:py-24">
-      <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+    <section className="py-10">
+      <div className="grid md:grid-cols-2 gap-5">
         {/* Development Card */}
         <Card className="bg-gradient-to-br from-[#8338EC] to-[#B923FF] border-0 text-white">
           <CardContent className="p-8 md:p-12">

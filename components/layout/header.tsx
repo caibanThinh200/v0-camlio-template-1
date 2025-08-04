@@ -7,7 +7,7 @@ import Image from "next/image"
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between p-6 md:p-8 text-white">
+    <header className="flex items-center justify-between p-6 md:p-8 text-white bg-russia-purple rounded-t-lg">
       <div className="text-xl font-medium italic">
         <Link href="/" className="hover:opacity-80 transition-opacity">
           <Image src="/images/logo.png" alt="Hello Camlio" width={150} height={40} />
@@ -39,10 +39,10 @@ export default function Header() {
       </nav>
 
       <Button
-        className="bg-[#1E0044] text-white border-[0.5] border-transparent bg-gradient-to-r from-[#8338EC] to-[#B923FF] p-[2px] rounded-[10px] hover:opacity-90 transition-opacity shadow-md shadow-purple"
+        className="bg-[#1E0044] text-white border-[#B923FF] border bg-transparent p-[2px] rounded-full hover:opacity-90 transition-opacity shadow-md shadow-purple"
        
       >
-        <span className="bg-[#1E0044] px-4 py-2 rounded-[10px] flex items-center gap-2">
+        <span className="px-4 py-2 rounded-full flex items-center gap-2">
           LET'S TALK <ArrowUpRight className="w-4 h-4" />
         </span>
       </Button>

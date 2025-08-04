@@ -6,7 +6,6 @@ import ScrollDownButton from "@/components/ui/scroll-down-button"
 export default function Home() {
   return (
     <div>
-      <Header />
       <Hero />
       <Services />
       <ScrollDownButton />
