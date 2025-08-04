@@ -7,7 +7,7 @@ import Image from "next/image"
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between p-6 md:p-8 text-white bg-russia-purple rounded-t-lg">
+    <header className="flex items-center justify-between p-6 md:p-8 text-white bg-russia-purple rounded-t-3xl">
       <div className="text-xl font-medium italic">
         <Link href="/" className="hover:opacity-80 transition-opacity">
           <Image src="/images/logo.png" alt="Hello Camlio" width={150} height={40} />

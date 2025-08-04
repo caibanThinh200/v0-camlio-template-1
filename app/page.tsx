@@ -1,14 +1,15 @@
-import Header from "@/components/layout/header"
 import Hero from "@/components/sections/hero"
 import Services from "@/components/sections/services"
+import CaseStudy from "@/components/sections/case-study"
 import ScrollDownButton from "@/components/ui/scroll-down-button"
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <Services />
+      <CaseStudy />
       <ScrollDownButton />
-    </div>
+    </main>
   )
 }

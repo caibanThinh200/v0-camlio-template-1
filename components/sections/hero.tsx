@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <main className="px-6 md:px-8 py-16 md:py-24 text-white rounded-lg bg-russia-purple">
+    <main className="px-6 md:px-8 py-16 md:py-24 text-white rounded-b-3xl bg-russia-purple">
       <div className="max-w-4xl">
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
           I create <span className="italic text-[#B923FF] font-light font-georgia">beautiful</span>

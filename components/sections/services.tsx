@@ -9,7 +9,7 @@ export default function Services() {
       <div className="grid md:grid-cols-2 gap-5">
         {/* Development Card */}
         <Card className="bg-gradient-to-br from-[#8338EC] to-[#B923FF] border-0 text-white">
-          <CardContent className="p-8 md:p-12">
+          <CardContent className="p-8 md:p-12 px-6 md:px-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Development</h2>
             <p className="text-white/90 mb-8 leading-relaxed">
               I specialize in developing websites using Webflow, a powerful platform that allows for easy customization
@@ -30,7 +30,7 @@ export default function Services() {
 
         {/* Art Direction Card */}
         <Card className="bg-gradient-to-br from-[#B923FF] to-[#8338EC] border-0 text-white">
-          <CardContent className="p-8 md:p-12">
+          <CardContent className="p-8 md:p-12 px-6 md:px-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Art direction</h2>
             <p className="text-white/90 mb-8 leading-relaxed">
               Art direction is the process of bringing together all of the creative elements of a project to create a
