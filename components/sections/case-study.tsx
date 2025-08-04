@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ArrowUpRight } from "lucide-react"
-import Image from "next/image"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function CaseStudy() {
   return (
@@ -16,42 +16,51 @@ export default function CaseStudy() {
       >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6">
-            <div>
-              <p className="text-sm font-medium text-gray-600 mb-3 tracking-wide uppercase">CASE STUDY</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Korba</h2>
-            </div>
-
-            <div className="flex gap-3 mb-8">
-              <Badge
-                variant="outline"
-                className="border-gray-300 bg-transparent rounded-full px-4 py-2"
-              >
-                Web design
-              </Badge>
-              <Badge
-                variant="outline"
-                className="border-gray-300 bg-transparent rounded-full px-4 py-2"
-              >
-                Development
-              </Badge>
-            </div>
-
-            <div className="space-y-4 text-gray-600 leading-relaxed">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
-                tristique.
+          <div className="flex flex-col justify-between h-full">
+            <div className="flex flex-col justify-between">
+              <p className="text-sm font-medium text-gray-600 mb-3 tracking-wide uppercase">
+                CASE STUDY
               </p>
-              <p>Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Korba
+              </h2>
+              <div className="flex gap-3 mb-8">
+                <Badge
+                  variant="outline"
+                  className="border border-background bg-transparent rounded-full px-4 py-2"
+                >
+                  Web design
+                </Badge>
+                <Badge
+                  variant="outline"
+                  className="border border-background bg-transparent rounded-full px-4 py-2"
+                >
+                  Development
+                </Badge>
+              </div>
             </div>
 
-            <Button
-              variant="outline"
-              className="mt-8 border-2 border-[#B923FF] text-[#B923FF] hover:bg-[#B923FF] hover:text-white rounded-full px-6 py-3 font-medium transition-all duration-300 group bg-transparent"
-            >
-              SEE CASE STUDY
-              <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-            </Button>
+            <div>
+              <div className="space-y-4 leading-relaxed">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse varius enim in eros elementum tristique.
+                </p>
+                <p>
+                  Duis cursus, mi quis viverra ornare, eros dolor interdum
+                  nulla.
+                </p>
+              </div>
+              <div>
+                <Button
+                  variant="outline"
+                  className="mt-8 border-2 border-purple-custom hover:bg-purple-custborder-purple-custom rounded-full px-6 py-3 font-medium transition-all duration-300 group bg-transparent shadow-md shadow-purple-custom"
+                >
+                  SEE CASE STUDY
+                  <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Right Image */}
@@ -69,12 +78,12 @@ export default function CaseStudy() {
         </div>
 
         {/* Navigation Dots */}
-        <div className="flex justify-center mt-8 space-x-2">
+        {/* <div className="flex justify-center mt-8 space-x-2">
           <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
           <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
           <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-        </div>
+        </div> */}
       </div>
     </section>
-  )
+  );
 }

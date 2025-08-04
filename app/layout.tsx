@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
+import ScrollDownButton from "@/components/ui/scroll-down-button";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
