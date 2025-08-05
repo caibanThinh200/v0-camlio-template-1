@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ArrowUpRight } from "lucide-react"
-import Image from "next/image"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 interface CaseStudyProps {
-  variant?: "light" | "dark"
+  variant?: "light" | "dark";
 }
 
 export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
-  const isLight = variant === "light"
+  const isLight = variant === "light";
 
   return (
     <section className="py-10">
       <div
         className={`rounded-3xl bg-cover bg-center bg-no-repeat p-8 md:p-12 px-6 md:px-8 ${
-          isLight ? "" : "bg-gradient-to-br from-[#1E0044] via-[#2D1B69] to-[#8338EC]"
-        }`}
-        style={
           isLight
-            ? {
-                backgroundImage: "url('/images/case-study-bg.png')",
-              }
-            : undefined
-        }
+            ? ""
+            : "bg-gradient-to-br from-[#1E0044] via-[#2D1B69] to-[#8338EC]"
+        }`}
+        style={{
+          backgroundImage: isLight
+            ? "url('/images/case-study-bg.png')"
+            : "url('/images/case-study-bg-dark.png')",
+        }}
       >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -37,14 +37,20 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
               >
                 CASE STUDY
               </p>
-              <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isLight ? "text-gray-900" : "text-white"}`}>
+              <h2
+                className={`text-4xl md:text-5xl font-bold mb-6 ${
+                  isLight ? "text-gray-900" : "text-white"
+                }`}
+              >
                 {isLight ? "Korba" : "TrailHive"}
               </h2>
               <div className="flex gap-3 mb-8">
                 <Badge
                   variant="outline"
                   className={`border rounded-full px-4 py-2 ${
-                    isLight ? "border-background bg-transparent" : "border-white/30 bg-transparent text-white"
+                    isLight
+                      ? "border-background bg-transparent"
+                      : "border-white/30 bg-transparent text-white"
                   }`}
                 >
                   {isLight ? "Web design" : "Concept design"}
@@ -52,7 +58,9 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
                 <Badge
                   variant="outline"
                   className={`border rounded-full px-4 py-2 ${
-                    isLight ? "border-background bg-transparent" : "border-white/30 bg-transparent text-white"
+                    isLight
+                      ? "border-background bg-transparent"
+                      : "border-white/30 bg-transparent text-white"
                   }`}
                 >
                   {isLight ? "Development" : "Brand identity"}
@@ -61,12 +69,19 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
             </div>
 
             <div>
-              <div className={`space-y-4 leading-relaxed ${isLight ? "text-gray-600" : "text-white/80"}`}>
+              <div
+                className={`space-y-4 leading-relaxed ${
+                  isLight ? "text-gray-600" : "text-white/80"
+                }`}
+              >
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
-                  tristique.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse varius enim in eros elementum tristique.
                 </p>
-                <p>Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+                <p>
+                  Duis cursus, mi quis viverra ornare, eros dolor interdum
+                  nulla.
+                </p>
               </div>
               <div>
                 <Button
@@ -99,20 +114,14 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
             ) : (
               <div className="relative">
                 {/* Design Elements Overlay */}
-                <div className="absolute top-8 left-8 z-10">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                    <Image
-                      src="/images/site-winner-badge.png"
-                      alt="Site Winner Badge"
-                      width={60}
-                      height={60}
-                      className="w-12 h-12"
-                    />
-                  </div>
-                </div>
-
-                <div className="absolute top-20 right-12 z-10">
-                  <div className="bg-blue-500 text-white px-3 py-1 rounded text-sm font-mono">144.83 ≡ 144.83</div>
+                <div className="absolute top-8 -left-24 z-10">
+                  <Image
+                    src="/images/site-winner-badge.png"
+                    alt="Site Winner Badge"
+                    width={150}
+                    height={150}
+                    className="w-48 h-48"
+                  />
                 </div>
 
                 {/* Main Sphere Image */}
@@ -131,14 +140,14 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
         </div>
 
         {/* Navigation Dots - Only show for light variant */}
-        {isLight && (
+        {/* {isLight && (
           <div className="flex justify-center mt-8 space-x-2">
             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
             <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
             <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
           </div>
-        )}
+        )} */}
       </div>
     </section>
-  )
+  );
 }
