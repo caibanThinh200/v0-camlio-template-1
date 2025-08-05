@@ -13,7 +13,7 @@ export default function ScrollDownButton() {
   return (
     <button
       onClick={scrollToNext}
-      className="absolute bottom-8 right-8 z-50 hover:scale-110 transition-transform duration-300"
+      className="absolute bottom-2 max-sm:left-1/2 transform max-sm:-translate-x-1/2 md:bottom-8 md:right-8 z-50 hover:scale-110 transition-transform duration-300"
       aria-label="Scroll down"
     >
       <Image

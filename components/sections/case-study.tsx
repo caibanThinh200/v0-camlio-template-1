@@ -114,13 +114,13 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
             ) : (
               <div className="relative">
                 {/* Design Elements Overlay */}
-                <div className="absolute top-8 -left-24 z-10">
+                <div className="absolute lg:top-8 -top-4 -left-4 lg:-left-24 z-10">
                   <Image
                     src="/images/site-winner-badge.png"
                     alt="Site Winner Badge"
                     width={150}
                     height={150}
-                    className="w-48 h-48"
+                    className="lg:w-48 lg:h-48 w-16 h-16"
                   />
                 </div>
 
