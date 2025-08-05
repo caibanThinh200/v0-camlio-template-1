@@ -1,54 +1,98 @@
-"use client"
-
+import type React from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function Services() {
   return (
-    <section className="py-10">
-      <div className="grid md:grid-cols-2 gap-5">
-        {/* Development Card */}
-        <Card className="bg-gradient-to-br from-[#8338EC] to-[#B923FF] border-0 text-white">
-          <CardContent className="p-8 md:p-12 px-6 md:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Development</h2>
-            <p className="text-white/90 mb-8 leading-relaxed">
-              I specialize in developing websites using Webflow, a powerful platform that allows for easy customization
-              and responsive design. I have experience building websites for a variety of industries, from small
-              businesses to large corporations. My focus is always on creating functional and smooth websites that
-              generate traffic.
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-[#E9DEFF] flex justify-center items-center">
+      <div className="container px-4 md:px-6 max-w-6xl">
+        <div className="grid gap-8 lg:grid-cols-2 items-start">
+          <div className="space-y-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#1E0044] font-montserrat">My Services</h2>
+            <p className="text-lg text-gray-700 font-montserrat">
+              I offer a comprehensive range of services to help you bring your digital vision to life.
             </p>
-            <div className="flex gap-3">
-              <Badge variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
-                Webflow
-              </Badge>
-              <Badge variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
-                Development
-              </Badge>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Art Direction Card */}
-        <Card className="bg-gradient-to-br from-[#B923FF] to-[#8338EC] border-0 text-white">
-          <CardContent className="p-8 md:p-12 px-6 md:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Art direction</h2>
-            <p className="text-white/90 mb-8 leading-relaxed">
-              Art direction is the process of bringing together all of the creative elements of a project to create a
-              cohesive visual identity. I work with clients to develop a concept and bring it to life through art
-              direction. I believe that attention to detail and a clear vision are key to creating truly memorable
-              designs.
-            </p>
-            <div className="flex gap-3">
-              <Badge variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
-                Concept design
-              </Badge>
-              <Badge variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
-                Brand identity
-              </Badge>
-            </div>
-          </CardContent>
-        </Card>
+            <Button className="bg-[#8338EC] hover:bg-[#B923FF] text-white rounded-full px-8 py-3 text-lg font-montserrat">
+              View All Services
+            </Button>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card className="bg-[#1E0044] text-white rounded-3xl p-6 shadow-lg">
+              <CardContent className="space-y-4 p-0">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold font-montserrat">Web Design</h3>
+                  <Link href="#" className="text-[#B923FF] hover:text-[#8338EC] transition-colors" prefetch={false}>
+                    <ArrowUpRightIcon className="h-5 w-5" />
+                  </Link>
+                </div>
+                <p className="text-gray-300 text-base">
+                  Crafting visually stunning and intuitive website interfaces that captivate your audience.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-[#1E0044] text-white rounded-3xl p-6 shadow-lg">
+              <CardContent className="space-y-4 p-0">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold font-montserrat">Web Development</h3>
+                  <Link href="#" className="text-[#B923FF] hover:text-[#8338EC] transition-colors" prefetch={false}>
+                    <ArrowUpRightIcon className="h-5 w-5" />
+                  </Link>
+                </div>
+                <p className="text-gray-300 text-base">
+                  Building robust and scalable web applications using the latest technologies and best practices.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-[#1E0044] text-white rounded-3xl p-6 shadow-lg">
+              <CardContent className="space-y-4 p-0">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold font-montserrat">UI/UX Design</h3>
+                  <Link href="#" className="text-[#B923FF] hover:text-[#8338EC] transition-colors" prefetch={false}>
+                    <ArrowUpRightIcon className="h-5 w-5" />
+                  </Link>
+                </div>
+                <p className="text-gray-300 text-base">
+                  Designing seamless and enjoyable user experiences that drive engagement and satisfaction.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-[#1E0044] text-white rounded-3xl p-6 shadow-lg">
+              <CardContent className="space-y-4 p-0">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold font-montserrat">Branding</h3>
+                  <Link href="#" className="text-[#B923FF] hover:text-[#8338EC] transition-colors" prefetch={false}>
+                    <ArrowUpRightIcon className="h-5 w-5" />
+                  </Link>
+                </div>
+                <p className="text-gray-300 text-base">
+                  Developing strong brand identities that resonate with your target audience and stand out.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     </section>
+  )
+}
+
+function ArrowUpRightIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M7 7h10v10" />
+      <path d="M7 17 17 7" />
+    </svg>
   )
 }

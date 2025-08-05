@@ -1,17 +1,13 @@
-"use client"
-
 import { create } from "zustand"
 
 interface AppState {
-  isMenuOpen: boolean
-  setMenuOpen: (open: boolean) => void
-  currentSection: string
-  setCurrentSection: (section: string) => void
+  count: number
+  increment: () => void
+  decrement: () => void
 }
 
 export const useStore = create<AppState>((set) => ({
-  isMenuOpen: false,
-  setMenuOpen: (open) => set({ isMenuOpen: open }),
-  currentSection: "home",
-  setCurrentSection: (section) => set({ currentSection: section }),
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
 }))

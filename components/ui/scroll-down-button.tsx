@@ -1,28 +1,42 @@
 "use client"
 
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function ScrollDownButton() {
-  const scrollToNext = () => {
+  const [isVisible, setIsVisible] = useState(true)
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsVisible(false)
+    } else {
+      setIsVisible(true)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  const scrollToNextSection = () => {
     window.scrollBy({
       top: window.innerHeight,
       behavior: "smooth",
     })
   }
 
+  if (!isVisible) return null
+
   return (
     <button
-      onClick={scrollToNext}
-      className="absolute bottom-8 right-8 z-50 hover:scale-110 transition-transform duration-300"
-      aria-label="Scroll down"
+      onClick={scrollToNextSection}
+      className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce"
+      aria-label="Scroll down to next section"
     >
-      <Image
-        src="/images/scroll-down.png"
-        alt="Scroll down"
-        width={60}
-        height={60}
-        className="w-12 h-12 md:w-28 md:h-28"
-      />
+      <Image src="/images/scroll-down.png" alt="Scroll Down" width={50} height={50} priority />
     </button>
   )
 }

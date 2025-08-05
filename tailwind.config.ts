@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss"
 
-const config: Config = {
+const config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -19,20 +19,11 @@ const config: Config = {
       },
     },
     extend: {
-      fontFamily: {
-        montserrat: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
-        sans: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
-        georgia: ["Georgia", "Times New Roman", "Times", "serif"],
-      },
       colors: {
-        "russia-purple": "#1E0044",
-        "blue-violet": "#8338EC",
-        "purple-custom": "#B923FF",
-        "purple": "#A22DF7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#0B001A",
+        background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -63,12 +54,6 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      fontSize: {
-        basic: "16px",
-        h1: "54px",
-        h2: "32px",
-        h3: "20px",
-      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -87,6 +72,10 @@ const config: Config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        sans: ["var(--font-montserrat)"],
+        montserrat: ["Montserrat", "sans-serif"],
       },
     },
   },

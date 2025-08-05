@@ -1,51 +1,61 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-import { ExternalLink, ArrowUpRight } from "lucide-react"
-import Link from "next/link"
+import type React from "react"
 import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between p-6 md:p-8 text-white bg-russia-purple rounded-t-3xl">
-      <div className="text-xl font-medium italic">
-        <Link href="/" className="hover:opacity-80 transition-opacity">
-          <Image src="/images/logo.png" alt="Hello Camlio" width={150} height={40} />
+    <header className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between p-6">
+      <div className="flex items-center">
+        <Link href="#" prefetch={false}>
+          <Image src="/images/logo.png" alt="Camlio Logo" width={120} height={40} priority />
         </Link>
       </div>
-
-      <nav className="hidden md:flex items-center space-x-8">
-        <Link
-          href="https://linkedin.com"
-          target="_blank"
-          className="flex items-center gap-2 text-sm hover:opacity-80 transition-opacity"
-        >
-          LINKEDIN <ExternalLink className="w-3 h-3" />
+      <nav className="hidden md:flex items-center space-x-8 text-white text-lg font-montserrat">
+        <Link href="#" className="hover:text-[#B923FF] transition-colors" prefetch={false}>
+          Home
         </Link>
-        <Link
-          href="https://twitter.com"
-          target="_blank"
-          className="flex items-center gap-2 text-sm hover:opacity-80 transition-opacity"
-        >
-          TWITTER <ExternalLink className="w-3 h-3" />
+        <Link href="#" className="hover:text-[#B923FF] transition-colors" prefetch={false}>
+          Services
         </Link>
-        <Link
-          href="https://dribbble.com"
-          target="_blank"
-          className="flex items-center gap-2 text-sm hover:opacity-80 transition-opacity"
-        >
-          DRIBBBLE <ExternalLink className="w-3 h-3" />
+        <Link href="#" className="hover:text-[#B923FF] transition-colors" prefetch={false}>
+          Portfolio
+        </Link>
+        <Link href="#" className="hover:text-[#B923FF] transition-colors" prefetch={false}>
+          About
+        </Link>
+        <Link href="#" className="hover:text-[#B923FF] transition-colors" prefetch={false}>
+          Contact
         </Link>
       </nav>
-
-      <Button
-        className="bg-[#1E0044] text-white border-[#B923FF] border bg-transparent p-[2px] rounded-full hover:opacity-90 transition-opacity shadow-md shadow-purple"
-       
-      >
-        <span className="px-4 py-2 rounded-full flex items-center gap-2">
-          LET'S TALK <ArrowUpRight className="w-4 h-4" />
-        </span>
+      <Button className="hidden md:inline-flex bg-[#8338EC] hover:bg-[#B923FF] text-white rounded-full px-6 py-3 text-lg font-montserrat">
+        Let&apos;s Talk
+      </Button>
+      <Button variant="ghost" size="icon" className="md:hidden text-white">
+        <MenuIcon className="h-6 w-6" />
+        <span className="sr-only">Toggle navigation menu</span>
       </Button>
     </header>
+  )
+}
+
+function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="4" x2="20" y1="12" y2="12" />
+      <line x1="4" x2="20" y1="6" y2="6" />
+      <line x1="4" x2="20" y1="18" y2="18" />
+    </svg>
   )
 }
