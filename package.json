@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@emotion/is-prop-valid": "latest",
     "@radix-ui/react-accordion": "latest",
     "@radix-ui/react-alert-dialog": "latest",
     "@radix-ui/react-aspect-ratio": "latest",
@@ -41,7 +40,6 @@
     "clsx": "^2.1.1",
     "cmdk": "latest",
     "embla-carousel-react": "latest",
-    "framer-motion": "latest",
     "immer": "latest",
     "input-otp": "latest",
     "lucide-react": "^0.454.0",
