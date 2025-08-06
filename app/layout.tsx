@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import ScrollDownButton from "@/components/ui/scroll-down-button";
+import FadeUp from "@/components/animations/fade-up"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -43,7 +44,9 @@ export default function RootLayout({
     <html lang="en" className={montserrat.variable}>
       <body className={`${montserrat.className} antialiased`}>
         <div className="p-5 relative overflow-hidden">
-          <Header />
+          <FadeUp>
+            <Header />
+          </FadeUp>
           {children}
         </div>
       </body>
