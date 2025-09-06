@@ -1,11 +1,22 @@
+import { getPageData } from "@/lib/sanity-utils"
+import PageBuilder from "@/components/page-builder"
 import Hero from "@/components/sections/hero"
 import Services from "@/components/sections/services"
 import CaseStudy from "@/components/sections/case-study"
 import Awards from "@/components/sections/awards"
 import CallToAction from "@/components/sections/call-to-action"
-import FadeUp from "@/components/animations/fade-up" // Import the new FadeUp component
+import FadeUp from "@/components/animations/fade-up"
 
-export default function Home() {
+export default async function Home() {
+  // Try to fetch page data from Sanity
+  const pageData = await getPageData("home")
+
+  // If Sanity data is available, use PageBuilder
+  if (pageData && pageData.components && pageData.components.length > 0) {
+    return <PageBuilder components={pageData.components} />
+  }
+
+  // Fallback to static components if no Sanity data
   return (
     <main>
       <FadeUp>
