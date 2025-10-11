@@ -1,9 +1,10 @@
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
-  name: 'awards',
-  title: 'Awards',
-  type: 'document',
+  name: 'awardsBlock',
+  title: 'Awards Block',
+  type: 'object',
+  description: 'Awards section showcasing recognitions and achievements',
   fields: [
     defineField({
       name: 'title',
@@ -35,4 +36,15 @@ export default defineType({
       validation: (Rule) => Rule.required().min(1),
     }),
   ],
+  preview: {
+    select: {
+      awards: 'awardsList',
+    },
+    prepare({awards}) {
+      return {
+        title: 'Awards Block',
+        subtitle: `${awards?.length || 0} awards`,
+      }
+    },
+  },
 })

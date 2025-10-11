@@ -4,6 +4,7 @@ export default defineType({
   name: 'header',
   title: 'Header',
   type: 'document',
+  description: 'Global header configuration for the site',
   fields: [
     defineField({
       name: 'logo',
@@ -79,4 +80,14 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'cta.text',
+    },
+    prepare() {
+      return {
+        title: 'Site Header',
+      }
+    },
+  },
 })

@@ -59,4 +59,15 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      description: 'description',
+    },
+    prepare({description}) {
+      return {
+        title: 'Service Card',
+        subtitle: description,
+      }
+    },
+  },
 })

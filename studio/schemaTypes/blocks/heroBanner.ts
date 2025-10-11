@@ -3,7 +3,8 @@ import {defineType, defineField} from 'sanity'
 export default defineType({
   name: 'heroBanner',
   title: 'Hero Banner',
-  type: 'document',
+  type: 'object',
+  description: 'Hero section with main title, description, and call to action',
   fields: [
     defineField({
       name: 'title',
@@ -77,4 +78,15 @@ export default defineType({
       rows: 2,
     }),
   ],
+  preview: {
+    select: {
+      description: 'description',
+    },
+    prepare({description}) {
+      return {
+        title: 'Hero Banner',
+        subtitle: description,
+      }
+    },
+  },
 })

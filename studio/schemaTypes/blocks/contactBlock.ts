@@ -1,9 +1,10 @@
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
-  name: 'contact',
-  title: 'Contact',
-  type: 'document',
+  name: 'contactBlock',
+  title: 'Contact Block',
+  type: 'object',
+  description: 'Contact section with title, copyright, and additional information',
   fields: [
     defineField({
       name: 'title',
@@ -46,4 +47,9 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+  },
 })

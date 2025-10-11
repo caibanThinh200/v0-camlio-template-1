@@ -1,19 +1,27 @@
-import header from './header'
-import heroBanner from './heroBanner'
-import serviceCard from './serviceCard'
-import services from './services'
-import caseStudy from './caseStudy'
-import award from './award'
-import awards from './awards'
-import contact from './contact'
+// Documents
+import header from './documents/header'
+import page from './documents/page'
+
+// Blocks
+import heroBanner from './blocks/heroBanner'
+import serviceCard from './blocks/serviceCard'
+import servicesBlock from './blocks/servicesBlock'
+import caseStudyBlock from './blocks/caseStudyBlock'
+import award from './blocks/award'
+import awardsBlock from './blocks/awardsBlock'
+import contactBlock from './blocks/contactBlock'
 
 export const schemaTypes = [
+  // Documents
   header,
+  page,
+
+  // Blocks
   heroBanner,
   serviceCard,
-  services,
-  caseStudy,
+  servicesBlock,
+  caseStudyBlock,
   award,
-  awards,
-  contact,
+  awardsBlock,
+  contactBlock,
 ]
