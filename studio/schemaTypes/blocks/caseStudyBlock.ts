@@ -23,28 +23,14 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'array',
-      description: 'Case study title with rich text formatting',
-      of: [
-        {
-          type: 'block',
-          styles: [
-            {title: 'H2', value: 'h2'},
-          ],
-          marks: {
-            decorators: [
-              {title: 'Italic', value: 'em'},
-              {title: 'Strong', value: 'strong'},
-            ],
-          },
-        },
-      ],
+      type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'headline',
       title: 'Headline',
       type: 'string',
+      initialValue: 'Case study',
       description: 'Short headline or tagline for the case study',
       validation: (Rule) => Rule.required(),
     }),
@@ -92,7 +78,7 @@ export default defineType({
           title: 'Target Link',
           type: 'url',
           description: 'URL to the full case study page',
-          validation: (Rule) => Rule.required(),
+          // validation: (Rule) => Rule.required(),
         },
       ],
       validation: (Rule) => Rule.required(),

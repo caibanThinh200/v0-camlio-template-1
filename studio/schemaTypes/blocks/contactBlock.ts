@@ -46,6 +46,38 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'socials',
+      title: 'Socials',
+      type: 'array',
+      description: 'List of social media links',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'string',
+              description: 'Social media name or label (e.g., "Twitter", "LinkedIn")',
+              validation: (Rule: any) => Rule.required(),
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              description: 'Link to the social media profile',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'text',
+              subtitle: 'url',
+            },
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {

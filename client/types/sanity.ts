@@ -14,65 +14,109 @@ export interface BaseComponent {
   _key: string;
 }
 
-export interface HeroComponent extends BaseComponent {
-  _type: "template_1_hero";
+export interface CTA {
+  text?: string;
+  link?: string;
+}
+
+export interface HeroBannerComponent extends BaseComponent {
+  _type: "heroBanner";
   title: BlockContent;
   description: string;
-  note: string;
+  cta?: CTA;
+  extraNote?: string;
 }
 
-export interface ServicesComponent extends BaseComponent {
-  _type: "services";
-  services: {
-    title: string;
-    description: string;
-    tags: string[];
-    gradient: "purple-blue" | "blue-purple";
-  }[];
-}
-
-export interface CaseStudyComponent extends BaseComponent {
-  _type: "caseStudy";
+export interface ServiceCard {
+  _key: string;
   title: string;
-  category: string;
   description: string;
-  tags: string[];
-  image: SanityImage;
+  skills: string[];
+}
+
+export interface ServicesBlockComponent extends BaseComponent {
+  _type: "servicesBlock";
+  serviceCards: ServiceCard[];
+}
+
+export interface CaseStudyBlockComponent extends BaseComponent {
+  _type: "caseStudyBlock";
   variant: "light" | "dark";
-  badge?: SanityImage;
-}
-
-export interface AwardsComponent extends BaseComponent {
-  _type: "awards";
-  awards: {
-    year: string;
-    title: string;
-    category: string;
-    link: string;
-  }[];
-}
-
-export interface CallToActionComponent extends BaseComponent {
-  _type: "callToAction";
   title: string;
-  logo: SanityImage;
-  socialLinks: {
-    platform: string;
-    url: string;
-  }[];
+  headline: string;
+  description: string;
+  categories: string[];
+  image: SanityImage;
+  cta: CTA;
+}
+
+export interface Award {
+  _key: string;
+  headline: string;
+  description: string;
+  link?: string;
+}
+
+export interface AwardsBlockComponent extends BaseComponent {
+  _type: "awardsBlock";
+  title: string;
+  awardsList: Award[];
+}
+
+export interface Social {
+  _key: string;
+  text: string;
+  url?: string;
+}
+
+export interface ContactBlockComponent extends BaseComponent {
+  _type: "contactBlock";
+  title: string;
   copyright: string;
-  availabilityText: string;
+  extraNote?: string;
+  cta?: CTA;
+  socials?: Social[];
 }
 
 export type PageComponent =
-  | HeroComponent
-  | ServicesComponent
-  | CaseStudyComponent
-  | AwardsComponent
-  | CallToActionComponent;
+  | HeroBannerComponent
+  | ServicesBlockComponent
+  | CaseStudyBlockComponent
+  | AwardsBlockComponent
+  | ContactBlockComponent;
 
 export interface Page {
   _id: string;
-  _type: "template_1";
+  pageName: string;
+  slug: string;
   pageBuilder: PageComponent[];
+}
+
+// Header types
+export interface MenuItem {
+  _key: string;
+  text: string;
+  link: string;
+}
+
+export interface HeaderData {
+  _id: string;
+  logo?: {
+    image?: SanityImage;
+    link: string;
+  };
+  menuItems?: MenuItem[];
+  cta?: CTA;
+}
+
+// Settings types
+export interface SEO {
+  title?: string;
+  description?: string;
+  ogImage?: SanityImage;
+}
+
+export interface SettingsData {
+  _id: string;
+  seo?: SEO;
 }

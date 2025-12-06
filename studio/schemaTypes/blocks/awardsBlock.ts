@@ -9,22 +9,8 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Section Title',
-      type: 'array',
-      description: 'Awards section title with rich text formatting',
-      of: [
-        {
-          type: 'block',
-          styles: [
-            {title: 'H2', value: 'h2'},
-          ],
-          marks: {
-            decorators: [
-              {title: 'Italic', value: 'em'},
-              {title: 'Strong', value: 'strong'},
-            ],
-          },
-        },
-      ],
+      type: 'string',
+      description: 'Awards section title',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

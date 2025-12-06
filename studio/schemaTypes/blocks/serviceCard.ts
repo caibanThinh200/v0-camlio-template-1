@@ -9,37 +9,7 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'array',
-      description: 'H1 heading with rich text formatting. Use decorators for highlight colors and italic styling',
-      of: [
-        {
-          type: 'block',
-          styles: [
-            {title: 'H1', value: 'h1'},
-          ],
-          marks: {
-            decorators: [
-              {title: 'Italic', value: 'em'},
-              {title: 'Strong', value: 'strong'},
-            ],
-            annotations: [
-              {
-                name: 'color',
-                title: 'Color',
-                type: 'object',
-                fields: [
-                  {
-                    name: 'value',
-                    title: 'Color Value',
-                    type: 'string',
-                    description: 'Hex color code for highlighted text',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-      ],
+      type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -62,10 +32,11 @@ export default defineType({
   preview: {
     select: {
       description: 'description',
+      title: 'title',
     },
-    prepare({description}) {
+    prepare({description, title}) {
       return {
-        title: 'Service Card',
+        title: title,
         subtitle: description,
       }
     },

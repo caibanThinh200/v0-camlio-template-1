@@ -1,11 +1,11 @@
 "use client";
 
-import { HeroComponent } from "@/types/sanity";
+import { HeroBannerComponent } from "@/types/sanity";
 import ScrollDownButton from "../ui/scroll-down-button";
 import PortableText from "react-portable-text";
 
 interface HeroProps {
-  data: HeroComponent;
+  data: HeroBannerComponent;
 }
 
 type SerializerProps = {
@@ -13,7 +13,7 @@ type SerializerProps = {
 };
 
 export default function Hero({ data }: HeroProps) {
-  const { title, description, note } = data;
+  const { title, description, extraNote } = data;
   return (
     <main className="px-6 md:px-8 py-16 md:py-24 text-white rounded-b-3xl bg-russia-purple relative">
       <div className="max-w-4xl">
@@ -46,7 +46,7 @@ export default function Hero({ data }: HeroProps) {
         {description && (
           <p className="text-lg md:text-xl max-w-2xl mb-16">{description}</p>
         )}
-        {note && <p>{note}</p>}
+        {extraNote && <p>{extraNote}</p>}
       </div>
       <ScrollDownButton />
     </main>

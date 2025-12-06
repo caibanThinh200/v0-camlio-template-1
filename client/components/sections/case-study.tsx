@@ -4,12 +4,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { CaseStudyBlockComponent } from "@/types/sanity";
+import { urlFor } from "@/lib/sanity";
+import Link from "next/link";
 
 interface CaseStudyProps {
-  variant?: "light" | "dark";
+  data: CaseStudyBlockComponent;
 }
 
-export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
+export default function CaseStudy({ data }: CaseStudyProps) {
+  const { variant = "light", title, headline, description, categories, image, cta } = data;
   const isLight = variant === "light";
 
   return (
@@ -35,36 +39,29 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
                   isLight ? "text-gray-600" : "text-white/80"
                 }`}
               >
-                CASE STUDY
+                {headline}
               </p>
               <h2
                 className={`text-4xl md:text-5xl font-bold mb-6 ${
                   isLight ? "text-gray-900" : "text-white"
                 }`}
               >
-                {isLight ? "Korba" : "TrailHive"}
+                {title}
               </h2>
-              <div className="flex gap-3 mb-8">
-                <Badge
-                  variant="outline"
-                  className={`border rounded-full px-4 py-2 ${
-                    isLight
-                      ? "border-background bg-transparent"
-                      : "border-white/30 bg-transparent text-white"
-                  }`}
-                >
-                  {isLight ? "Web design" : "Concept design"}
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className={`border rounded-full px-4 py-2 ${
-                    isLight
-                      ? "border-background bg-transparent"
-                      : "border-white/30 bg-transparent text-white"
-                  }`}
-                >
-                  {isLight ? "Development" : "Brand identity"}
-                </Badge>
+              <div className="flex flex-wrap gap-3 mb-8">
+                {categories?.map((category, index) => (
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className={`border rounded-full px-4 py-2 ${
+                      isLight
+                        ? "border-background bg-transparent"
+                        : "border-white/30 bg-transparent text-white"
+                    }`}
+                  >
+                    {category}
+                  </Badge>
+                ))}
               </div>
             </div>
 
@@ -74,79 +71,61 @@ export default function CaseStudy({ variant = "light" }: CaseStudyProps) {
                   isLight ? "text-gray-600" : "text-white/80"
                 }`}
               >
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros elementum tristique.
-                </p>
-                <p>
-                  Duis cursus, mi quis viverra ornare, eros dolor interdum
-                  nulla.
-                </p>
+                <p>{description}</p>
               </div>
-              <div>
-                <Button
-                  variant="outline"
-                  className={`mt-8 border-2 rounded-full px-6 py-3 font-medium transition-all duration-300 group bg-transparent shadow-md ${
-                    isLight
-                      ? "border-purple-custom hover:bg-purple-custom shadow-purple-custom text-purple-custom hover:text-white"
-                      : "border-white/30 text-white hover:bg-white hover:text-[#1E0044] shadow-white/20"
-                  }`}
-                >
-                  SEE CASE STUDY
-                  <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                </Button>
-              </div>
+              {cta && (
+                <div>
+                  <Button
+                    variant="outline"
+                    className={`mt-8 border-2 rounded-full px-6 py-3 font-medium transition-all duration-300 group bg-transparent shadow-md ${
+                      isLight
+                        ? "border-purple-custom hover:bg-purple-custom shadow-purple-custom text-purple-custom hover:text-white"
+                        : "border-white/30 text-white hover:bg-white hover:text-[#1E0044] shadow-white/20"
+                    }`}
+                    asChild={!!cta.link}
+                  >
+                    {cta.link ? (
+                      <Link href={cta.link} target="_blank" rel="noopener noreferrer">
+                        {cta.text}
+                        <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      </Link>
+                    ) : (
+                      <>
+                        {cta.text}
+                        <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      </>
+                    )}
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
 
           {/* Right Image */}
           <div className="relative">
-            {isLight ? (
+            {image ? (
               <div className="rounded-3xl aspect-square flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/images/korba-3d-sphere.png"
-                  alt="Korba project 3D visualization"
+                  src={urlFor(image).url()}
+                  alt={title || "Case study image"}
                   width={400}
                   height={400}
                   className="w-full h-full object-cover rounded-3xl"
                 />
               </div>
             ) : (
-              <div className="relative">
-                {/* Design Elements Overlay */}
-                <div className="absolute lg:top-8 -top-4 -left-4 lg:-left-24 z-10">
-                  <Image
-                    src="/images/site-winner-badge.png"
-                    alt="Site Winner Badge"
-                    width={150}
-                    height={150}
-                    className="lg:w-48 lg:h-48 w-16 h-16"
-                  />
-                </div>
-
-                {/* Main Sphere Image */}
-                <div className="rounded-3xl aspect-square flex items-center justify-center overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10">
-                  <Image
-                    src="/images/trailhive-sphere.png"
-                    alt="TrailHive project 3D visualization"
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
+              <div className="rounded-3xl aspect-square flex items-center justify-center overflow-hidden">
+                <Image
+                  src={isLight ? "/images/korba-3d-sphere.png" : "/images/trailhive-sphere.png"}
+                  alt={title || "Case study placeholder"}
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover rounded-3xl"
+                />
               </div>
             )}
           </div>
         </div>
-
-        {/* Navigation Dots - Only show for light variant */}
-        {/* {isLight && (
-          <div className="flex justify-center mt-8 space-x-2">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-            <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-          </div>
-        )} */}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 // Documents
-import header from './documents/header'
+import header from './singletons/header'
 import page from './documents/page'
 
 // Blocks
@@ -10,6 +10,8 @@ import caseStudyBlock from './blocks/caseStudyBlock'
 import award from './blocks/award'
 import awardsBlock from './blocks/awardsBlock'
 import contactBlock from './blocks/contactBlock'
+import seoFields from './blocks/seo'
+import { settings } from './singletons/settings'
 
 export const schemaTypes = [
   // Documents
@@ -24,4 +26,6 @@ export const schemaTypes = [
   award,
   awardsBlock,
   contactBlock,
+  seoFields,
+  settings
 ]

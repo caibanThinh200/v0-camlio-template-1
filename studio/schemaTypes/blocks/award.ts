@@ -25,7 +25,7 @@ export default defineType({
       title: 'Link',
       type: 'url',
       description: 'External link to view the award or recognition',
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

@@ -1,6 +1,14 @@
 "use client";
 
-import type { BaseComponent, HeroComponent, PageComponent } from "@/types/sanity";
+import type {
+  BaseComponent,
+  HeroBannerComponent,
+  ServicesBlockComponent,
+  CaseStudyBlockComponent,
+  AwardsBlockComponent,
+  ContactBlockComponent,
+  PageComponent,
+} from "@/types/sanity";
 import Hero from "@/components/sections/hero";
 import Services from "@/components/sections/services";
 import CaseStudy from "@/components/sections/case-study";
@@ -17,38 +25,38 @@ export default function PageBuilder({ components }: PageBuilderProps) {
     const delay = index * 0.1;
 
     switch (component._type) {
-      case "template_1_hero":
+      case "heroBanner":
         return (
           <FadeUp key={component._key} delay={delay}>
-            <Hero data={component} />
+            <Hero data={component as HeroBannerComponent} />
           </FadeUp>
         );
 
-      case "services":
+      case "servicesBlock":
         return (
           <FadeUp key={component._key} delay={delay}>
-            <Services />
+            <Services data={component as ServicesBlockComponent} />
           </FadeUp>
         );
 
-      case "caseStudy":
+      case "caseStudyBlock":
         return (
           <FadeUp key={component._key} delay={delay}>
-            <CaseStudy />
+            <CaseStudy data={component as CaseStudyBlockComponent} />
           </FadeUp>
         );
 
-      case "awards":
+      case "awardsBlock":
         return (
           <FadeUp key={component._key} delay={delay}>
-            <Awards />
+            <Awards data={component as AwardsBlockComponent} />
           </FadeUp>
         );
 
-      case "callToAction":
+      case "contactBlock":
         return (
           <FadeUp key={component._key} delay={delay}>
-            <CallToAction />
+            <CallToAction data={component as ContactBlockComponent} />
           </FadeUp>
         );
 

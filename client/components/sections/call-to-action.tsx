@@ -2,8 +2,15 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import LetsTalkButton from "@/components/ui/lets-talk-button";
 import Image from "next/image";
+import { ContactBlockComponent } from "@/types/sanity";
 
-export default function CallToAction() {
+interface CallToActionProps {
+  data: ContactBlockComponent;
+}
+
+export default function CallToAction({ data }: CallToActionProps) {
+  const { title, copyright, extraNote, socials } = data;
+
   return (
     <section className="py-10">
       <div className="bg-[#1E0044] text-white py-16 rounded-3xl px-4 md:px-8 mx-auto flex flex-col items-center text-center">
@@ -19,42 +26,39 @@ export default function CallToAction() {
               />
             </Link>
           </div>
-          <div className="gap-6 hidden md:flex">
-            <Link
-              href="#"
-              className="flex items-center gap-1 text-base hover:underline"
-            >
-              LINKEDIN <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-1 text-base hover:underline"
-            >
-              TWITTER <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-1 text-base hover:underline"
-            >
-              DRIBBBLE <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
+          {socials && socials.length > 0 && (
+            <div className="gap-6 hidden md:flex">
+              {socials.map((social) => 
+                <Link
+                    key={social._key}
+                    href={social.url || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-base hover:underline"
+                  >
+                    {social.text.toUpperCase()} <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                  )}
+            </div>
+          )}
         </div>
 
         {/* Main Content */}
         <h1 className="text-[40px] md:text-[100px] font-bold leading-tight mb-12">
-          Interested in working together?
+          {title}
         </h1>
         <LetsTalkButton />
 
         {/* Footer */}
         <div className="w-full flex flex-col md:flex-row justify-between items-center mt-16 pt-8">
           <span className="text-sm opacity-70 mb-4 md:mb-0">
-            ©2024 - All Rights Reserved
+            {copyright}
           </span>
-          <span className="text-sm opacity-70">
-            Available for freelance work
-          </span>
+          {extraNote && (
+            <span className="text-sm opacity-70">
+              {extraNote}
+            </span>
+          )}
         </div>
       </div>
     </section>
